@@ -1,17 +1,42 @@
 {
   "name": "electronapp",
   "version": "1.0.0",
+  "description": "A portable Electron-based Windows desktop application",
   "main": "main.js",
   "scripts": {
     "start": "electron .",
+    "package": "electron-builder --dir",
+    "make": "electron-builder",
+    "dist": "electron-builder --win portable",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": "",
   "dependencies": {
-    "@nut-tree-fork/nut-js": "^4.2.2",
-    "electron": "^33.2.1"
+    "@nut-tree-fork/nut-js": "^4.2.2"
+  },
+  "devDependencies": {
+    "electron": "^33.2.1",
+    "electron-builder": "^24.6.0"
+  },
+  "build": {
+    "appId": "com.yourcompany.electronapp",
+    "productName": "ElectronApp",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "main.js",
+      "api-client.js",
+      "api-server.js",
+      "constants.js",
+      "mouse-tracker.js",
+      "utils.js",
+      "build/**/*"
+    ],
+    "win": {
+      "target": "portable"
+    }
   }
 }
